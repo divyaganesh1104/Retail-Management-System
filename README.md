@@ -1,4 +1,4 @@
-Retail Management System
+#Retail Management System
 1. Abstract 
 The Retail Management System (RMS) project is a comprehensive software solution designed to streamline and enhance various aspects of managing a retail business. It enables the salesperson and the manager of the Retail store to manage the information of customer, employees, suppliers, Products and product many reports. It is developed by Django framework and MySQL to manage database.
 2.Introduction
