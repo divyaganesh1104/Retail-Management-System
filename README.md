@@ -1,30 +1,3 @@
-Table of contents
-
-
-     1    Abstract                                                                      1
-2    Introduction		1
- 2.1    Key Features and Modules. . . . . . . . . . . . . . . . . .	1
- 2.2   Technologies Used . . . . . . . . . . . . . . . . . . . . . . .2
-     3    Architecture	3
- 3.1    Entity Relationship Diagram. . . . . . . . . . . . . . . . .3
- 3.2    Relational Table definition. . . . . . . . . . . . . . . . . . 4
-4    User Documentation		5
- 4.1.  User Roles and Access . . . . . . . . . . . . . . . . . . . . . .6
-4.1.1   Salesperson. . . . . . . . . . . . . . . . . . . . . . . . . . . .6
-4.1.2   Administrator. . . . . . . . . . . . . . . . . . . . . . . . . . 6
-4.1.3   Manager. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7
- 4.2   Logging in to the System. . . . . . . . . . . . . . . . . . . .8
- 4.3   Dashboard Overview. . . . . . . . . . . . . . . . . . . . . . . .9
- 4.4   Actors Management. . . . . . . . . . . . . . . . . . . . . . . .9
- 4.5   Product ID Creation. . . . . . . . . . . . . . . . . . . . . . . .11
- 4.6   Purchase Module. . . . . . . . . . . . . . . . . . . . . . . . . . 12
- 4.7   Sales Module. . . . . . . . . . . . . . . . . . . . . . . . . . . . . .13
- 4.8   Generating Reports. . . . . . . . . . . . . . . . . . . . . . . . 15
- 4.9   Printing Barcodes. . . . . . . . . . . . . . . . . . . . . . . . . .15
-5    Test Scenarios 		16
- 5.1     Test scenario 1. . . . . . . . . . . . . . . . . . . . . . . . . . . 16
- 5.2    Test scenario 2. . . . . . . . . . . . . . . . . . . . . . . . . . . .18
-6    Conclusion                                                               21
 Retail Management System
 1. Abstract 
 The Retail Management System (RMS) project is a comprehensive software solution designed to streamline and enhance various aspects of managing a retail business. It enables the salesperson and the manager of the Retail store to manage the information of customer, employees, suppliers, Products and product many reports. It is developed by Django framework and MySQL to manage database.
