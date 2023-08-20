@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Style the form inputs */
+input[type="text"] {
+  width: 83%;
+  padding: 8px;
+  margin-top:10px;
+
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+    body {
+    background-color:#f2f2f2;
+    }
+    .hover-s{
+    background-color:rgba(255, 255, 255,0.6);
+    margin-left:98px;
+    width:83%;
+    height:40px;
+    border:0.5px solid #cccccc;
+    border-radius:4px;
+    margin-bottom:20px;
+    margin-top:10px;
+}
+.record {
+
+        display:grid;
+        grid-template-columns:1fr 80% 1fr;
+        margin-top:30px;
+        }
+  .hover-s:hover {
+    background-color:rgba(255, 255, 255,0.8);
+    }
+
+</style>
+<body>
+<h2 style="text-align:center;margin-top:20px">Packed Different Item Entry Page</h2>
+<div class="record">
+        <div></div>
+        <div class="form">
+<form action="" method="POST">
+    {% csrf_token %}
+
+    {{ formset.management_form }}
+    <div class="css-serial">
+    {% for form in formset %}
+        {{form.as_table}}<br>
+
+    {% endfor %}
+    </div>
+    {% if alart %}
+    <p style="text-align:center;margin-top:10px;color:red">This item difference is already entered</p>
+    {% endif %}
+    <input type="submit" class="hover-s" name="submit">
+    <a href="{% url 'itemClsDifferSelect' %}" style="color:black;margin-left:490px;padding:6px 30px;background-color:white;border:0.5px solid #cccccc;border-radius:4px;text-decoration:none"> Go Back</a>
+</form>
+             </div>
+        <div></div>
+    </div>
+
+</body>
+{% endblock %}

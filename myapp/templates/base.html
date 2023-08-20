@@ -1,0 +1,203 @@
+{% load static %}
+      <script src="https://kit.fontawesome.com/135ad0a08e.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+  <style>
+
+.nav{
+    background-color:black;
+    height:50px;
+    }
+.s {
+    margin-right:50px;
+    }
+ .icon {
+        float:left;
+        }
+ .head{
+        border-bottom:4px dotted blue;
+        }
+.nav-sidebar {
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    z-index:2px;
+    background:rgba(0,0,0,0.7);
+     transform:translate(-100%);
+    right:0;
+    }
+ .color-show {
+        transform:translate(0%);
+        }
+ .sidebar-left {
+        width:360px;
+        height:100%;
+        background-color:white;
+        overflow-y:hidden;
+        }
+ .dash {
+        background-color:black;
+        width:100%;
+        height:50px;
+        color:white;
+        font-size:25px;
+        text-align:center;
+        line-height:45px;
+        }
+ .menu-choices {
+        overflow-y:scroll;
+        height:100%;
+        padding-bottom:90px;
+        }
+  ul li {
+        list-style:none;
+        margin-top:9px;
+        font-size:15px;
+        font-family: sans-serif;
+        margin-left:-35px;
+        padding:9px 9px 9px 35px;
+        }
+  .menu-choices ul li:hover{
+        background:rgba(0,0,0,0.1);
+
+        }
+
+        .nav > li {
+            position:absolute;
+            color:white;
+            top:-19px;
+            font-size:18px
+            }
+            ul li ul{
+            font-size:16px !important;
+            display:none;
+            background-color:white;
+            border-radius:5px;
+            position:fixed;
+            color:black !important;
+            height:35px;
+            right:260px;
+            line-height:0px;
+            width:150px;
+            box-shadow:1px 1px 20px gray;
+            }
+
+ ul li:hover ul{
+ display: block;
+ }
+ a{
+    text-decoration:none;
+    color:black;
+    }
+</style>
+  <body>
+    <ul class="nav "  aria-label="Secondary navigation">
+
+         <li style="left:2%;top:-15px" id="s"><a class="nav-link text-white" href="#"> <i  style="color:white; font-size:18px " class="fa-solid fa-bars"></i> All</a></li>
+        <li style="left:8%;padding-top:12px" class="s"><a class="nav-link text-white" href="#"> <i class="fas fa-atom" style="color:white; font-size:18px;"> </i> Retail  Management  System</a></li>
+        <li style="right:33.5%;padding-top:13px" class="nav-item"><a class="nav-link text-white" href="{% url 'base' %}"> <i class="fas fa-home" style="color:white; font-size:16px "> </i> Home</a></li>
+
+            <li style="right:18%;cursor:pointer;padding-top:13px"><a  class="nav-link text-white" href="{% url 'base' %}"> Hello, {{request.user}} <i id="user-logo" style="font-size:19px" class="fa-solid fa-circle-user"></i></a>
+                <ul>
+                    {% if request.user.is_admin %}
+                <li class="hint">Administrator</li>
+                    {% elif request.user.is_salesperson %}
+                    <li class="hint">Salesperson </li>
+                     {% elif request.user.is_manager %}
+                    <li class="hint">Manager</li>
+                    {% endif %}
+
+
+             </ul>
+            </li>
+
+            <li style="right:5%;padding-top:12px" class="nav-item"><a class="nav-link text-white" href="{% url 'log_out_page' %}"> <i class="fa-solid fa-arrow-right-from-bracket" style="font-size:18px;"></i>  Logout</a></li>
+
+    </ul>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+   {% block content %}
+    <div style="position:absolute; top:100px; left:200px; right:200px; bottom:100px;z-index:-1; font-weight:bold; color:black; font-family:Times New Roman;background:rgb(255, 255, 255, 0.8);border-radius:50px; box-shadow: 20px 20px 50px black;">
+        <h1 class="head" style="margin:10px 100px 10px 100px">Welcome to Retail Shop Management System</h1>
+        <p style="font-size:23px;padding:10px 30px 10px 30px;text-align:center">Retail Management Software supports all core retail processes. Retail Management Software gain insights into operational retail data and provide users with contextual, real-time information and a simple user interface to make faster decisions and deliver a better consumer experience.</p>
+        <div class="icon"><i class="fas fa-laptop" style="font-size:50px; background-color:blue;padding:20px;margin-left:60px; border-radius:50px"></i>
+            <p style="margin-left:80px;margin-bottom:25px;">Inventory</p><p style="margin-left:70px;margin-top:-23px;">Management</p>
+        </div>
+       <div class="icon"><i class="fa fa-eye" style="font-size:50px; background-color:blue;padding:20px;margin-left:60px; border-radius:50px"></i>
+           <p style="margin-left:90px;margin-top:20px">CRM</p></div>
+         <div class="icon"><i class="fas fa-bullhorn" style="font-size:50px; background-color:blue;padding:20px;margin-left:55px; border-radius:50px"></i>
+             <p style="width:20px; text-indent:10px;margin-left:55px">Employee Management</p></div>
+        <div class="icon"><i class="fas fa-dumpster" style="font-size:50px; background-color:blue;padding:20px;margin-left:55px; border-radius:50px"></i>
+            <p style="width:20px;text-indent:20px;margin-left:58px">Vendor Management</p></div>
+         <div class="icon"><i class="material-icons" style="font-size:50px; background-color:blue;padding:20px;margin-left:55px; border-radius:50px">report</i>
+             <p style="width:100px;text-indent:13px;margin-left:58px">Reporting And Analytics</p></div>
+         <div class="icon"><i class="fa fa-paypal" style="font-size:45px; background-color:blue;padding:20px 25px 20px 25px;margin-left:55px;border-radius:50px"></i>
+             <p style="margin-left:83px;margin-top:20px">POS</p></div>
+    </div>
+
+    <img src="{% static 'images/background-imag1.jpg' %}" style="position:relative;z-index:-2" alt="imag" height="560px "width="100%"/>
+      <i class="fa fa-copyright" style="background-color:black;color:white;width:100%;height:47px;word-spacing:4px;letter-spacing:1.5px;text-align:right;padding-right:15px; padding-top:18px; font-size:14px; font-weight:bold"> 2023 designed and developed by Divya</i>
+
+{% endblock %}
+    <div class="nav-sidebar" id="nav-sidebar">
+        <div class="sidebar-left">
+            <h1 class="dash">Dashboard</h1>
+            <div class="menu-choices">
+                <ul>
+                <h4>Actors</h4>
+                    <li><a href="{% url 'custom' %}"> Customer Management </a></li>
+                    <li><a href="{% url 'sign_up_page' %}">Employee Registration</a></li>
+                    <li><a href="{% url 'supplier' %}">Supplier Management</a></li>
+
+                    </ul>
+                <hr>
+                <ul>
+                <h4>Creating Product Id's</h4>
+
+                    <li><a href="{% url 'product_class' %}">Product Classification ID</a></li>
+                    <li><a href="{% url 'product' %}">Product ID</a></li>
+                    <li><a href="{% url 'item_class' %}">Item Classification ID</a></li>
+                    <li><a href="{% url 'item_cls_differ' %}">Packed Difference ID</a></li>
+                    </ul>
+                <hr>
+                <ul>
+                <h4>Generating Reports</h4>
+                    <li><a href="{% url 'item_status' %}">Item Status Report</a></li>
+                    <li><a href="{% url 'item_stock_report' %}">Item Stock Report</a></li>
+                    <li><a href="{% url 'purchase_report' %}">Item Updation Report</a></li>
+                    <li><a href="{% url 'item_profit' %}">Item Profit Report</a></li>
+                     <li><a href="{% url 'sales_info' %}">Sales Report</a></li>
+                    <li><a href="{% url 'purchase_info' %}">Purchase Report</a></li>
+                     <li><a href="sales_profit/all">Sales Profit Report</a></li>
+                    </ul>
+                <hr>
+                 <ul>
+                <h4>Purchase & Printing</h4>
+                    <li><a href="{% url 'new_purchase' %}">Purchasing from Supplier</a></li>
+                    <li><a href="{% url 'barcode_printer' %}">Barcode Printer</a></li>
+                    </ul>
+            </div>
+
+        </div>
+ <li style="position:fixed;top:10px;left:26%;cursor:pointer" id="close-btn">  <i style="color:white;font-size:35px;" class="fa-solid fa-xmark"></i></li>
+    </div>
+
+</body>
+<script>
+
+    nav_sidebar = document.getElementById('nav-sidebar');
+    s = document.getElementById('s');
+    close_btn = document.getElementById('close-btn');
+    s.addEventListener('click',()=>{
+        nav_sidebar.classList.toggle('color-show');
+        }
+        )
+    close_btn.addEventListener('click',()=>{
+        nav_sidebar.classList.toggle('color-show');
+        }
+        )
+</script>
+
+

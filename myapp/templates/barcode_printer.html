@@ -1,0 +1,169 @@
+<div class='no-print'>{% extends 'base.html' %}
+
+
+{% block content %}
+</div>
+    <style>
+body {
+    background-color:#f2f2f2;
+    }
+        .img {
+  height:100px;
+  object-fit: contain;
+  margin-top:50px;
+  background-color:red;
+}
+select {
+    position:absolute;
+    top:10px;
+    left:470px;
+    width:200px;
+    height:40px;
+    font-size:18px;
+    text-align:center;
+    border-radius:4px;
+    }
+    .cls_id{
+        background-color:white;
+        margin-top:10px;
+        height:150px;
+        margin-left:100px;
+        margin-right:100px;
+        padding:10px;
+        position:relative;
+        border-radius:10px;
+        font-size:18px;
+        }
+
+     #content{
+         margin-left:100px;
+        margin-right:100px;
+        }
+@media print {
+
+    .noprint {
+        display:none;
+        }
+    #print {
+        display:none;
+        }
+     .no-print, .no-print *
+    {
+        display: none ;
+    }
+    #content
+    {
+        display:inline-block;
+        }
+    }
+.search, .print{
+    position:absolute;
+    right:10px;
+    bottom:10px;
+    background-color:white;
+    border-width:1px;
+    padding:5px 20px;
+    border-radius:5px;
+    }
+    button {
+        width:85.5%;
+        height:40px;
+        border:none;
+        margin-left:98px;
+        border-radius:10px;
+        background-color:white;
+        margin-top:20px;
+        }
+   .cover-label {
+        font-weight:600;
+        margin:10px;
+        font-size:14px;
+        display:inline-block;
+        text-align:center;
+        background-color:white;
+        width:262px;
+        border-radius:10px;
+        }
+    </style>
+<body>
+<form action="" method="POST">
+    {% csrf_token %}
+
+    <div style="margin-top:10px;" class="noprint">
+        <h1 style="font-size:30px;text-align:center;margin-top:-10px;line-height:40px;background-color:lightblue;height:50px">Barcode Printer</h1>
+      <div class="cls_id">
+        <select name="purchase_id" id="purchase_id" onchange="productClsField()">
+            <option>Choose Purchase Id</option>
+                {% for i in purchase_id %}
+            <option value="{{i.id}}" {% if request.GET.purchase_id == i.id|lower %}selected{% endif %}>{{i.purchase_id}}</option>
+                {% endfor %}
+        </select>
+          <div style="float:right;margin-top:5px;margin-right:8px">
+          <input type="checkbox"  id="selectall" onClick="selectAll(this,'color')" /> <label>Select All</label>
+              </div>
+          <hr style="margin-top:50px">
+         {% for i in id_of_purchase2 %}
+            <p style="margin-left:10px;display:inline-block"><input  name="get_id" type="checkbox"  value="{{i.1}}"> {{i.0}}</p>
+          {% endfor %}
+
+    <input class="search" type="submit" name="search">
+    </div>
+    <div class="select-info" style="text-align:center;margin-top:15px;color:green;margin-bottom:0px;font-size:18px">
+        {% if pch_item_id %}
+        <label>Selected item ID list:</label>
+        {% for get in pch_item_id %}
+        <label> | {{get}}</label>
+        {% endfor %}
+        {% endif %}
+    </div>
+    </div>
+    <div id="content">
+    {% if packed_same_list %}
+        {% for i in packed_same_list %}
+        <div class="cover-label">
+        <p>{{i.2}}</p>
+          <p style="margin-bottom:-50px;margin-top:-20px">Rs.{{i.1}}</p>
+    <img src="media/{{i.0}}" class="img">
+             </div>
+        {% endfor %}
+    {% endif %}
+    {% if unpacked_list %}
+    {% for i in unpacked_list %}
+        <div class="cover-label">
+        <p>{{i.2}}</p>
+          <p style="margin-bottom:-50px;margin-top:-20px">Rs.{{i.1}}</p>
+     <img src="media/{{i.0}}" class="img">
+        </div>
+    {% endfor %}
+    {% endif %}
+    {% if packed_different_list %}
+    {% for i in packed_different_list %}
+        <div class="cover-label">
+        <p>{{i.2}}</p>
+          <p style="margin-bottom:-50px;margin-top:-20px">Rs.{{i.1}}</p>
+     <img src="media/{{i.0}}" class="img">
+             </div>
+        {% endfor %}
+    {% endif %}
+    </div>
+    <div id="print">
+      <button >Print Barcode</button>
+    </div>
+</form>
+</body>
+<script>
+const printBtn = document.getElementById('print');
+printBtn.addEventListener('click', function() {
+window.print();
+})
+function productClsField(){
+        purchase_id = document.getElementById('purchase_id').value;
+        window.location = "/barcode_printer?purchase_id="+purchase_id;
+    }
+function selectAll(source) {
+    checkboxes = document.getElementsByName('get_id');
+    for(var i in checkboxes)
+        checkboxes[i].checked = source.checked;
+}
+</script>
+{% endblock %}

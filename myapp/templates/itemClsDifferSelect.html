@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+     body {
+    background-color:#e6e6ff;
+    }
+.a {
+    background-color:rgba(255, 255, 255,0.6);
+    margin:10px;
+    height:50px;
+    padding:10px 10px 0px 30px;
+    border-radius:7px;
+    line-height:45px;
+
+    letter-spacing:2px;
+    font-weight:600;
+    text-shadow:2px 2px 2px #e6e6ff;
+    }
+.a,.submit-btn:hover {
+    background-color:rgba(255, 255, 255,0.8);
+    }
+.record {
+
+        display:grid;
+        grid-template-columns:1fr 50% 1fr;
+        margin-top:30px;
+        }
+.submit-btn {
+
+          background-color:rgba(255, 255, 255,0.6);
+            color:black;
+            width:80px;
+            height:40px;
+            padding:0;
+            border:none;
+            border-radius:20px;
+            margin-top:10px;
+            margin-left:180px;
+            }
+</style>
+<body>
+<h2 style="text-align:center;margin-top:20px">Packed Different Item Entry Selecting Page</h2>
+<div class="record">
+        <div></div>
+        <div class="form">
+{% for i in item %}
+            <div class="a">
+
+                <table>
+                    <tr>
+
+                        <td><a style=" text-decoration:none;color:blue; font-size:20px;" href="itemClsDifferEntry/{{i.0}}"> {{i.1}}</a></td>
+                        <td style="letter-spacing:0;padding-left:70px">{{i.2}}</td>
+
+                    </tr>
+
+                </table>
+                 <div style="text-align:right;margin-top:-40px">{{i.3}}
+                        </div>
+
+            </div>
+
+{% endfor %}
+            <a href="{% url 'item_cls_differ' %}"><input type="button" name="exit" value="EXIT" class="submit-btn" style="width:320px;"></a>
+         </div>
+
+        <div></div>
+    </div>
+</body>
+{% endblock %}
