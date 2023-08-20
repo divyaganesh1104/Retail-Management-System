@@ -141,7 +141,7 @@ This will happen when products are purchased. The Barcode Printing feature in th
 
 ## 5. Test Scenarios
 Presenting two test scenarios will test and explain the usage of the database. These scenarios are chosen to create a real-world situation. There are two test scenarios, first scenario is about the sales entry. Second scenario is about purchase entry.
-### 5.1. Test scenario 1:
+### 5.1. Test scenario 1
 **Use Case Title:** Purchase Entry
 
 **Brief Description:** The manager enters purchase records into the system, ensuring accurate tracking of procured products, prices, and supplier information.
@@ -175,7 +175,7 @@ Presenting two test scenarios will test and explain the usage of the database. T
 -	In item status, the barcodes and item ids are generated.
 -	A receipt is generated, and barcodes are printed and pasted to each purchased item.
 
-### 5.2. Test scenario 2:
+### 5.2. Test scenario 2
 
 **Use Case Title:** Sales Entry
 
@@ -217,6 +217,6 @@ Presenting two test scenarios will test and explain the usage of the database. T
 ## 6. Conclusion
 The core functionality was reached in the following parts. It is possible to insert a new customer, change the details of a customer and delete a customer as well as employee and supplier. Also, the product part is implemented in the same way. A new product can be inserted, changed and deleted. Further the sales and purchase sections were completely implemented. It is possible to generates receipt and gives to the customer. The application also provides error checking: this means every input is tested and if an error occur gives warnings. This gives a better knowledge of `Python programming and Django` during project development.
 
---------------------------------------------------------------------------XXXX---------------------------------------------------------------
+
 
 
